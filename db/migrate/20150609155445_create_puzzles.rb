@@ -1,6 +1,6 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreatePuzzles < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
+    create_table :puzzles do |t|
       t.integer :quiz_id
       t.string :question
       t.string :answer

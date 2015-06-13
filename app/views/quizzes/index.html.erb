@@ -1,0 +1,34 @@
+<%= render 'shared/content_title', title: 'Pick a Quiz!' %>
+
+<%= Quiz::CATEGORIES.each do |category| %>
+  <%= form_for @quiz do |f| %>
+    <div class='control-group'>
+      <%= f.hidden_field :category, :value => "#{category}" %>
+      <%= f.hidden_field :score, :value => 0 %>
+    </div>
+    <%= f.submit "#{category}", class: "btn btn-default btn-lg btn-block" %>
+  <% end %>
+  </br>
+<% end %> 
+
+</br>
+</br>
+</br>  
+
+<p>
+  <h5>Top 10 Scores</h5>
+
+  <% @top_quizzes.each  do |quiz| %>
+    <div class='btn btn-default btn-lg btn-block'>
+      <p>
+          User: <%= link_to quiz.user.username, user_path(quiz.user) %>
+      </br>
+          Quiz Category: <%= quiz.category %>
+      </br>
+          Score: <%= quiz.score %>
+      </br>
+          Date: <%= display_datetime(quiz.created_at) %>
+    </div>
+  <% end %>
+</p>
+
