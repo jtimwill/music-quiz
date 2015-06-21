@@ -18,6 +18,3 @@
 
 # Ignore the pg database.
 config/database.yml
-
-# Ignore secrets
-config/secrets.yml
