@@ -7,7 +7,6 @@ class Puzzle < ActiveRecord::Base
     end
   end
 
-
   ANSWERS = {'1' => ['C0'], 
              '2' => ['CS', 'Db'], 
              '3' => ['D0'], 
@@ -20,6 +19,5 @@ class Puzzle < ActiveRecord::Base
              '10' => ['A0'], 
              '11' => ['AS', 'Bb'], 
              '12' => ['B0']}
-
 end
 
