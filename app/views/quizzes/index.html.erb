@@ -15,7 +15,7 @@
 </br>  
 <p>
   <h5>Top 5 Scores</h5>
-  <% @top_quizzes.each  do |quiz| %>
+  <% @quizzes.top_scores.each  do |quiz| %>
     <div class='btn btn-default btn-lg btn-block'>
       <p>
           User: <%= link_to quiz.user.username, user_path(quiz.user) %>

@@ -50,6 +50,9 @@ describe QuizzesController do
 end
 
   describe "GET index" do 
+    let(:quiz1) {Fabricate(:quiz)}
+    let(:quiz2) {Fabricate(:quiz)}
+    
     before do
       get :index
     end
@@ -57,5 +60,13 @@ end
     it "sets @quiz" do
       expect(assigns(:quiz)).to be_instance_of(Quiz)
     end
+
+    it "sets @quizzes" do 
+      expect(assigns(:quizzes)).to eq([quiz1,quiz2])
+    end
   end
 end
+
+
+
+

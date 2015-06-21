@@ -4,7 +4,7 @@ class QuizzesController < ApplicationController
 
   def index
     @quiz = Quiz.new
-    @top_quizzes = Quiz.top_scores
+    @quizzes = Quiz.all
   end
 
   def show

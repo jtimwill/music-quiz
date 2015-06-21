@@ -1,6 +1,24 @@
 require 'rails_helper'
 
-describe UsersController do 
+describe UsersController do
+  describe "GET show" do
+    let(:quiz1) {Fabricate(:quiz)}
+    let(:quiz2) {Fabricate(:quiz)}
+    let(:user) {Fabricate(:user)}
+    
+    before do
+      get :show, id: user.id
+    end
+
+    it "sets @user" do
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it "sets @quiz" do 
+      expect(assigns(:quiz)).to eq([quiz1,quiz2])
+    end
+  end
+
   describe "GET new" do
     it "sets @user" do 
       get :new
