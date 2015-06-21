@@ -1,20 +1,20 @@
 <h2> Score: <%= @quiz.score %> </h2>
 <% question = random_question(@quiz.category) %>
 
-<%= image_tag(note_image_path(question), size:"304x228",) %>
+<%= image_tag(note_image_path(question), size:"304x228") %>
 
-<% piano_style = [ 'left: 120px; z-index: 0;',
-                   'left: 162px; z-index: 1;',
-                   'left: 182px; z-index: 0;',
-                   'left: 224px; z-index: 1;',
-                   'left: 244px; z-index: 0;',
-                   'left: 306px; z-index: 0;',
-                   'left: 348px; z-index: 1;',
-                   'left: 368px; z-index: 0;',
-                   'left: 410px; z-index: 1;',
-                   'left: 430px; z-index: 0;',
-                   'left: 472px; z-index: 1;',
-                   'left: 492px; z-index: 0;'] %>
+<% piano_style = [ 'left: 0px; z-index: 0;',
+                   'left: 42px; z-index: 1;',
+                   'left: 62px; z-index: 0;',
+                   'left: 104px; z-index: 1;',
+                   'left: 124px; z-index: 0;',
+                   'left: 186px; z-index: 0;',
+                   'left: 228px; z-index: 1;',
+                   'left: 248px; z-index: 0;',
+                   'left: 290px; z-index: 1;',
+                   'left: 310px; z-index: 0;',
+                   'left: 352px; z-index: 1;',
+                   'left: 372px; z-index: 0;'] %>
 
 </br>
 </br>
