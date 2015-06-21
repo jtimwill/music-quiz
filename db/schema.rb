@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20150609155445) do
     t.datetime "updated_at"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.integer  "quiz_id"
-    t.string   "question"
-    t.string   "answer"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "quizzes", force: :cascade do |t|
     t.string   "category"
     t.integer  "score"

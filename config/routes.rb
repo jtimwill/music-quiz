@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/register', to: 'users#new'
 
-  resources :users, expect: [:index, :destroy]
+  resources :users, except: [:index, :destroy]
   resources :quizzes, except: [:index, :destroy] do 
     resources :puzzles, only: [:create]
   end

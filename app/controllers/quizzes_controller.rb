@@ -1,11 +1,10 @@
 class QuizzesController < ApplicationController
-  before_action :require_user, except: [:index]
+  before_action :require_user, only: [:show, :create]
   before_action :set_quiz, only: [:show]
 
   def index
     @quiz = Quiz.new
-    all_quizzes = Quiz.all.sort_by{|quiz| quiz.score}.reverse
-    @top_quizzes = all_quizzes.first(10)
+    @top_quizzes = Quiz.top_scores
   end
 
   def show
@@ -15,12 +14,8 @@ class QuizzesController < ApplicationController
   def create
     @quiz = Quiz.new(quiz_params)
     @quiz.user = current_user
-
-    if @quiz.save
-      render :show
-    else
-      render :new
-    end
+    @quiz.save
+    render :show
   end
 
   private 
@@ -30,6 +25,6 @@ class QuizzesController < ApplicationController
   end 
 
   def set_quiz
-    @quiz = Quiz.last
+    @quiz = Quiz.find(params[:id])
   end
 end

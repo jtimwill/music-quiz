@@ -1,39 +1,32 @@
-<h5> score: <%= @quiz.score %> </h5>
+<h2> Score: <%= @quiz.score %> </h2>
+<% question = random_question(@quiz.category) %>
 
-Question: <%= question = random_question(@quiz.category) %>
-
-<img src="/images/piano/keyboard.png" alt="Keyboard" usemap="#keyboardmap" style="width:431px;height:275px;">
-
-<map name="keyboardmap">
-  <area shape="rect" coords="0.0000,138,061.57,275" alt="C" href="c.html">
-  <area shape="rect" coords="061.57,138,123.14,275" alt="D" href="d.html">
-  <area shape="rect" coords="123.14,138,184.71,275" alt="E" href="e.html">
-  <area shape="rect" coords="184.71,138,246.28,275" alt="F" href="f.html">
-  <area shape="rect" coords="246.28,138,307.85,275" alt="G" href="g.html">
-  <area shape="rect" coords="307.85,138,369.42,275" alt="A" href="a.html">
-  <area shape="rect" coords="369.42,138,431.00,275" alt="B" href="b.html">
-
-  <area shape="rect" coords="40,0,90,137" alt="Sun" href="1.html">
-  <area shape="rect" coords="100,0,150,137" alt="Sun" href="2.html">
-  <area shape="rect" coords="220,0,270,137" alt="Sun" href="3.html">
-  <area shape="rect" coords="280,0,330,137" alt="Sun" href="4.html">
-  <area shape="rect" coords="340,0,390,137" alt="Sun" href="5.html">
+<%= image_tag(note_image_path(question), size:"304x228", top: '65%') %>
 
 
-
-  
-</map>
+<% piano_style = [ 'left: 120px; z-index: 0;',
+                   'left: 162px; z-index: 1;',
+                   'left: 182px; z-index: 0;',
+                   'left: 224px; z-index: 1;',
+                   'left: 244px; z-index: 0;',
+                   'left: 306px; z-index: 0;',
+                   'left: 348px; z-index: 1;',
+                   'left: 368px; z-index: 0;',
+                   'left: 410px; z-index: 1;',
+                   'left: 430px; z-index: 0;',
+                   'left: 472px; z-index: 1;',
+                   'left: 492px; z-index: 0;'] %>
 
 
 </br>
+</br>
 
-  <%= form_for [@quiz, @puzzle] do |f| %>
-    <div class='control-group'>
-      <%= f.label :Answer, 'Leave a comment' %>
-      <%= f.text_area :answer, :value => "1", class: 'span4' %>
+<% 12.times do |index| %>
+  <%= form_for [@quiz, Puzzle.new], :html => { :style => 'position: absolute; top: 60%;' + piano_style[index].to_s} do |f| %>
+      <%= f.hidden_field :answer, :value => index+1 %>
       <%= f.hidden_field :question, :value => question %>
-    </div>
-    <%= f.submit "Answer Question", :type => :image, :src => ,class: "btn btn-primary" %>
+      <%= f.submit "Button Number #{index+1}", :type => :image, :src => key_image_path(index+1) %>
   <% end %>
+<% end %>
 
 
