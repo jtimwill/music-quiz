@@ -1,7 +1,7 @@
 <h2> Score: <%= @quiz.score %> </h2>
 <% question = random_question(@quiz.category) %>
 
-<%= image_tag(note_image_path(question), size:"304x228", top: '65%') %>
+<%= image_tag(note_image_path(question), size:"304x228",) %>
 
 <% piano_style = [ 'left: 120px; z-index: 0;',
                    'left: 162px; z-index: 1;',
@@ -20,7 +20,7 @@
 </br>
 
 <% 12.times do |index| %>
-  <%= form_for [@quiz, Puzzle.new], :html => { :style => 'position: absolute; top: 60%;' + piano_style[index].to_s} do |f| %>
+  <%= form_for [@quiz, Puzzle.new], :html => { :style => 'position: absolute; top: 420px;' + piano_style[index].to_s} do |f| %>
       <%= f.hidden_field :answer, :value => index+1 %>
       <%= f.hidden_field :question, :value => question %>
       <%= f.submit "Button Number #{index+1}", :type => :image, :src => key_image_path(index+1) %>
