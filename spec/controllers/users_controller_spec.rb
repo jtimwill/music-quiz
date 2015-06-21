@@ -18,6 +18,10 @@ describe UsersController do
         expect(User.count).to eq(1)
       end
       
+      it "sets the notice" do
+        expect(flash[:notice]).to be_present
+      end
+      
       it "redirects to the root page" do 
         expect(response).to redirect_to root_path
       end

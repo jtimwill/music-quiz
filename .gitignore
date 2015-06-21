@@ -18,3 +18,4 @@
 
 # Ignore the pg database.
 config/database.yml
+
