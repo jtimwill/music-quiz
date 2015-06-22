@@ -9,6 +9,6 @@ class Quiz < ActiveRecord::Base
   end
 
   def self.top_scores
-    all.sort_by{|quiz| quiz.score}.reverse.first(5)
+    order(score: :desc).limit(5)
   end
 end

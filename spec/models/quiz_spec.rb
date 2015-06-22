@@ -8,9 +8,7 @@ describe Quiz do
   describe "#calculate_score" do 
     it "returns the number of puzzles associated with a quiz" do 
       my_quiz = Fabricate(:quiz)
-      first_puzzle = Fabricate(:puzzle, quiz_id: my_quiz.id)
-      second_puzzle = Fabricate(:puzzle, quiz_id: my_quiz.id)
-      third_puzzle = Fabricate(:puzzle, quiz_id: my_quiz.id)
+      Fabricate.times(3, :puzzle, quiz_id: my_quiz.id)
       expect(my_quiz.calculate_score).to eq(3)
     end
 
